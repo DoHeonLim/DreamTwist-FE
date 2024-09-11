@@ -10,7 +10,9 @@ Date        Author   Status    Description
 2024.08.07  임도헌   Modified  fairytaleId props 추가
 2024.08.07  임도헌   Modified  fairytaleId가 있다면 데이터 불러와서 폼에 적용
 2024.08.07  임도헌   Modified  유저 닉네임 추가(작가 명)
-2024.08.10  임도헌   Modified   유저 접근 권한 코드 추가
+2024.08.10  임도헌   Modified  유저 접근 권한 코드 추가
+2024.08.21  임도헌   Modified  동화 생성 시 유저 닉네임 안보이는 것 수정
+
 */
 
 import { useEffect, useState } from 'react';
@@ -37,7 +39,7 @@ export const useBookForm = (fairytaleId?: number) => {
     const [userId, setUserId] = useState<number>(0);
 
     // 유저 닉네임 불러오기
-    const [nickname, setNickname] = useState<string>('');
+    const [nickname, setNickname] = useState<string | null>(null);
     // 로딩 상태 추가
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -89,6 +91,7 @@ export const useBookForm = (fairytaleId?: number) => {
                     console.error(`Error fetching fairytale data: ${error}`);
                 }
             } else {
+                setNickname(localStorage.getItem('nickname'));
                 reset({
                     title,
                     theme,
