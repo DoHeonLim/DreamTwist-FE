@@ -9,6 +9,8 @@ Date        Author   Status    Description
 2024.08.07  나경윤    Modified    로그인 연결
 2024.08.10  나경윤    Modified    네브바에서 토큰 처리
 2024.08.10  임도헌    Modified   네브바 fiexd 적용
+2024.09.11  임도헌    Modified   반응형 UI 적용
+2024.09.13  임도헌    Modified   반응형 UI 수정
 */
 
 'use client';
@@ -18,7 +20,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import LoginNav from './LoginNav';
-import { getUserInfo } from '@/api/AuthApi';
+import { getUserInfo, postLogout } from '@/api/AuthApi';
+import LogoutModal from '../auth/LogoutModal';
 
 const JWT_EXPIRY_TIME = 15 * 60 * 1000;
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -31,6 +34,21 @@ export default function Nav() {
         profileImage: ''
     });
     const [isAuth, setIsAuth] = useState(false);
+    const [isMobileMenuOpen, setIsMobilMenuOpen] = useState(false);
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
+    const handleLogoutConfirm = async () => {
+        try {
+            await postLogout();
+            window.location.href = '/';
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLogoutModalOpen(false);
+        }
+    };
+    // 768px 이하를 모바일로 간주
+    const isMobile = false;
 
     const isPay = pathname.startsWith('/pay');
     const isBuild = pathname.startsWith('/buildstory');
@@ -150,6 +168,17 @@ export default function Nav() {
         setTimeout(refreshToken, JWT_EXPIRY_TIME - 60000); // 만료 1분 전에 재발급
     };
 
+    /**
+     * handleToggleMobileMenu: 모바일 반응형 메뉴
+     */
+    const handleToggleMobileMenu = () => {
+        setIsMobilMenuOpen(!isMobileMenuOpen);
+    };
+
+    const handleCancel = () => {
+        setIsLogoutModalOpen(false);
+    };
+
     if (pathname === '/login') {
         return null;
     }
@@ -157,7 +186,10 @@ export default function Nav() {
     return (
         <nav className="relative flex items-center justify-between h-[80px] text-lg shadow-md shadow-neutral-90 z-40">
             {/* 로고: 왼쪽 고정 */}
-            <Link href="/" className="absolute left-[6rem] cursor-pointer z-40">
+            <Link
+                href="/"
+                className="absolute left-1rem md:left-[6rem] cursor-pointer z-40"
+            >
                 <Image
                     src="/images/logo.svg"
                     alt="logo"
@@ -166,9 +198,9 @@ export default function Nav() {
                 />
             </Link>
 
-            {/* 중앙의 링크들: 중앙 고정 */}
-            <div className="absolute inset-x-0 flex justify-center z-30">
-                <div className="space-x-20">
+            {/* 데스크탑 링크 */}
+            <div className="hidden lg:flex space-x-20 absolute inset-x-0 justify-center z-30">
+                <div className="flex items-center space-x-20">
                     <Link
                         href="/"
                         className={`hover:text-main cursor-pointer ${isMain ? 'text-main' : ''}`}
@@ -189,11 +221,14 @@ export default function Nav() {
                     </Link>
                 </div>
             </div>
-
             {/* 로그인 버튼 또는 LoginNav: 오른쪽 고정 */}
-            <div className="absolute right-[6rem] space-x-4 z-40">
+            <div className="hidden lg:flex absolute right-[6rem] cursor-pointer z-40">
                 {isAuth ? (
-                    <LoginNav userInfo={userInfo} />
+                    <LoginNav
+                        userInfo={userInfo}
+                        handleToggleMobileMenu={handleToggleMobileMenu}
+                        isMobile={false} // 데스크탑일 때
+                    />
                 ) : (
                     <Link
                         href="/login"
@@ -203,6 +238,71 @@ export default function Nav() {
                     </Link>
                 )}
             </div>
+
+            {/* 모바일 햄버거 메뉴 */}
+            <div className="absolute right-6 z-40 lg:hidden">
+                <button onClick={handleToggleMobileMenu} className="text-3xl">
+                    ☰
+                </button>
+            </div>
+
+            {/* 모바일 메뉴 */}
+            {isMobileMenuOpen && (
+                <div className="absolute top-20 flex flex-col items-center justify-center right-0 w-full h-screen bg-white z-50">
+                    {isAuth ? (
+                        <Link
+                            href="/mypage"
+                            className="py-4 text-xl hover:text-main"
+                        >
+                            마이페이지
+                        </Link>
+                    ) : (
+                        <Link
+                            href="/login"
+                            className="py-4 text-xl hover:text-main"
+                        >
+                            로그인
+                        </Link>
+                    )}
+
+                    <Link
+                        href="/"
+                        onClick={handleToggleMobileMenu}
+                        className="py-4 text-xl hover:text-main"
+                    >
+                        동화 갤러리
+                    </Link>
+                    <Link
+                        href="/buildstory"
+                        onClick={handleToggleMobileMenu}
+                        className="py-4 text-xl hover:text-main"
+                    >
+                        동화 만들기
+                    </Link>
+                    <Link
+                        href="/pay"
+                        onClick={handleToggleMobileMenu}
+                        className="py-4 text-xl hover:text-main"
+                    >
+                        나뭇잎 충전
+                    </Link>
+                    {isAuth && (
+                        <button
+                            onClick={() => {
+                                setIsLogoutModalOpen(true);
+                            }}
+                            className="py-4 text-xl hover:text-main"
+                        >
+                            로그아웃
+                        </button>
+                    )}
+                    <LogoutModal
+                        isOpen={isLogoutModalOpen}
+                        onConfirm={handleLogoutConfirm}
+                        onCancel={handleCancel}
+                    />
+                </div>
+            )}
         </nav>
     );
 }

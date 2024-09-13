@@ -7,6 +7,7 @@ History
 Date        Author   Status    Description
 2024.08.08  나경윤    Created
 2024.08.08  나경윤    Modified  동화 타이틀 부분 분리
+2024.09.13  임도헌    Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -103,27 +104,33 @@ export default function BookInfo({ id }: { id: string }) {
 
     return (
         <>
-            <div className="relative flex flex-col w-full mb-4">
-                <div className="flex flex-row justify-center items-center mb-3 m-auto">
+            <div className="relative flex flex-col w-full justify-around mb-4 px-4 sm:px-6 md:px-8 lg:px-12">
+                <div className="flex flex-col md:flex-row justify-around items-center my-3">
                     <div
-                        className={`absolute left-0 bottom-14 font-Pretendard-100 rounded-[0.55rem] mb-0.5 ${styleClass} text-[0.9rem] px-2 py-[0.2rem]`}
+                        className={`font-Pretendard-100 rounded-[0.55rem] ${styleClass} text-[0.9rem] px-2 py-[0.2rem]`}
                     >
                         <p>{isPrivate}</p>
                     </div>
-                    <p className="text-2xl font-semibold">{bookInfo.title}</p>
-                    <p className="text-[17px] ml-5">{bookInfo.nickname} 작가</p>
+                    <div className="flex gap-x-4 justify-center items-center">
+                        <p className="text-base md:text-2xl font-semibold">
+                            {bookInfo.title}
+                        </p>
+                        <p className="text-sm md:text-base ml-5">
+                            {bookInfo.nickname} 작가
+                        </p>
+                    </div>
                     {userName === bookInfo.nickname && (
-                        <div className="flex flex-row items-center absolute right-0 bottom-14">
+                        <div className="flex flex-row items-center">
                             <EditDeleteBtn id={id} modalType="book" />
                         </div>
                     )}
                 </div>
                 <hr className="border border-zinc-200 opacity-70" />
-                <div className="flex flex-row mt-2 justify-between">
+                <div className="flex flex-col sm:flex-row mt-2 justify-between items-center">
                     <p className="text-gray-500 text-[14px]">
                         조회 {bookInfo.views}
                     </p>
-                    <div className="self-end">
+                    <div className="self-end mt-2 sm:mt-0">
                         <BookLike
                             id={id}
                             likeCount={bookInfo.likes}

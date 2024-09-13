@@ -5,7 +5,8 @@ Author : 나경윤
 
 History
 Date        Author   Status    Description
-2024.07.30  나경윤    Created
+2024.07.30  나경윤   Created
+2024.09.13  임도헌   Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -64,7 +65,7 @@ export default function RenderBook({
                     info={info}
                 />
             </div>
-            <div className="flex overflow-x-scroll w-[66.5rem] h-full custom-scrollbar">
+            <div className="flex overflow-x-scroll w-3/5 min-w-[400px] lg:min-w-[520px] max-w-[66rem] lg:max-w-1/2 h-full custom-scrollbar">
                 <PreviewBlank
                     step={step}
                     getTextForStep={getTextForStep}

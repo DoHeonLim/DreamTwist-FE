@@ -9,6 +9,7 @@ Date        Author   Status    Description
 2024.07.21  나경윤    Modified  페이지 구분 추가
 2024.07.28  나경윤    Modified  줄거리 텍스트 이미지로 적용 추가
 2024.08.04  나경윤    Modified  동화 내용 api 연결
+2024.09.13  임도헌    Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -50,28 +51,30 @@ export default function BookViewer({
         const [view, width] = useMemo(
             () =>
                 step === 0 || step === pageCount - 1
-                    ? ['hidden', 'w-[530px]']
-                    : ['display', 'w-[1050px]'],
+                    ? ['hidden', 'min-w-[400px] lg:min-w-[520px] max-w-screen']
+                    : ['block', 'min-w-[400px] lg:min-w-[520px] max-w-screen'],
             [step]
         );
 
         const titleFontSize =
-            info.title.length > 20 ? 'text-[1.6rem]' : 'text-[1.8rem]';
+            info.title.length > 20
+                ? 'text-[1.6rem] lg:text-[1.8rem]'
+                : 'text-[1.8rem] lg:text-[2rem]';
 
         return (
             <div
-                className={`relative flex felx-row justify-center h-[520px] items-center ${width} mx-8`}
+                className={`relative flex flex-col lg:flex-row justify-center min-h-[400px] lg:min-h-[520px] max-h-screen items-center ${width} mx-4 lg:mx-8`}
                 style={{ margin: 'auto' }}
             >
                 <div
-                    className="relative border-solid border border-gray-100 bg-[length:100%_100%] w-full h-full bg-cover bg-center bg-no-repeat shadow-lg"
+                    className="relative border-solid border border-gray-100 bg-cover bg-center bg-no-repeat shadow-lg min-w-[400px] lg:min-w-[520px] max-w-screen min-h-[400px] lg:min-h-[520px] max-h-screen"
                     style={{
                         backgroundImage: backgroundImage,
                         backgroundSize: backgroundSize
                     }}
                 >
                     <div
-                        className={`${step === 0 ? 'display' : 'hidden'} select-none absolute bottom-0 flex flex-col justify-center items-center bg-white w-full h-[7.5rem]`}
+                        className={`${step === 0 ? 'block' : 'hidden'} select-none absolute bottom-0 flex flex-col justify-center items-center bg-white w-full h-[7.5rem]`}
                     >
                         <p
                             className={`mb-0.5 ${titleFontSize} text-slate-800 font-LaundryGothic`}
@@ -84,11 +87,11 @@ export default function BookViewer({
                     </div>
                 </div>
                 <div
-                    className={`${view} flex justify-center items-center py-6 border-solid border border-gray-100 w-full h-full shadow-lg`}
+                    className={`${view} flex justify-center items-center border-solid border border-gray-100 w-[400px] lg:w-[520px] min-h-[400px] lg:min-h-[520px] shadow-lg`}
                 >
                     <canvas
                         ref={canvasRef}
-                        className="flex justify-center items-center w-full h-[80%] mx-24"
+                        className="flex justify-center items-center w-full h-[80%] box-border px-4"
                     />
                 </div>
             </div>
@@ -104,7 +107,7 @@ export default function BookViewer({
             >
                 <ArrowIcon rotate="180" />
             </button>
-            {renderBooks()}
+            <div className="px-8">{renderBooks()}</div>
             <button
                 type="button"
                 onClick={nextStep}

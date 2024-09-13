@@ -18,6 +18,7 @@ Date        Author   Status    Description
 2024.08.03  임도헌   Modified  훅 분리
 2024.08.07  임도헌   Modified  loading 페이지 추가
 2024.08.07  임도헌   Modified  유저가 페이지 새로고침이나 나갈려 할때 usePageLeaveCheck 추가
+2024.09.13  임도헌   Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -55,16 +56,19 @@ export default function FairytailForm({ fairytaleId = 0 }: FairytailFormProps) {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex w-full m-4 mt-4 p-2 pl-1 border border-green-300 rounded-lg shadow"
+            className="flex w-full flex-col lg:flex-row m-4 mt-4 p-2 pl-1 border border-green-300 rounded-lg shadow"
         >
-            <div className="">
-                <div className="max-w-xs mt-8 ml-8">
-                    <label htmlFor="title" className="m-4 ">
+            <div className="max-w-xs lg:mt-8 lg:ml-8">
+                <div className="flex flex-col">
+                    <label
+                        htmlFor="title"
+                        className="flex flex-col mx-2 md:m-4"
+                    >
                         동화 제목
                         <input
                             id="title"
                             {...register('title', { required: true })}
-                            className="w-[280px] m-4 p-2 pl-1 border border-gray-300 rounded-lg shadow focus:outline-none focus:border-2"
+                            className="w-full my-4 p-2 border border-gray-300 rounded-lg shadow focus:outline-none focus:border-2"
                             placeholder="제목을 입력해주세요."
                         />
                     </label>
@@ -73,25 +77,26 @@ export default function FairytailForm({ fairytaleId = 0 }: FairytailFormProps) {
                             동화 제목을 입력해주세요.
                         </span>
                     )}
-                    <label htmlFor="theme" className="m-4">
+                    <label
+                        htmlFor="theme"
+                        className="flex flex-col mx-2 md:m-4"
+                    >
                         주제
-                        <div className="relative">
-                            <div className="absolute top-[34px] left-[270px]">
-                                <DropIcon rotate="" />
-                            </div>
-                            <select
-                                className="w-[280px] m-4 p-2 pl-1 border border-gray-300 rounded-lg shadow focus:outline-none focus:border-2 appearance-none"
-                                id="theme"
-                                {...register('theme', { required: true })}
-                            >
-                                <option value="">주제를 선택해주세요.</option>
-                                {themes.map(({ name }) => (
-                                    <option key={name} value={name}>
-                                        {name}
-                                    </option>
-                                ))}
-                            </select>
+                        <div className="absolute top-[34px] left-[270px]">
+                            <DropIcon rotate="" />
                         </div>
+                        <select
+                            className="w-full my-4 p-2 border border-gray-300 rounded-lg shadow focus:outline-none focus:border-2 appearance-none"
+                            id="theme"
+                            {...register('theme', { required: true })}
+                        >
+                            <option value="">주제를 선택해주세요.</option>
+                            {themes.map(({ name }) => (
+                                <option key={name} value={name}>
+                                    {name}
+                                </option>
+                            ))}
+                        </select>
                     </label>
                     {errors.theme && (
                         <span className="block ml-4 mb-2 text-sm text-red-600 font-bold">
@@ -114,7 +119,7 @@ export default function FairytailForm({ fairytaleId = 0 }: FairytailFormProps) {
                     />
                     <button
                         type="submit"
-                        className="bg-yellow-500 py-2 px-4 ml-2 rounded-[7px] text-white cursor-pointer"
+                        className="bg-yellow-500 px-2 md:py-2 md:px-4 md:ml-2 text-xs md:text-base rounded-[7px] text-white cursor-pointer"
                     >
                         다음 페이지로 가야 저장됩니다.
                     </button>

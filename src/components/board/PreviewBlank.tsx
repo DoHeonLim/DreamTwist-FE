@@ -7,6 +7,7 @@ History
 Date        Author   Status    Description
 2024.07.19  나경윤    Created
 2024.08.04  나경윤    Modified  동화 내용 api 연결
+2024.09.13  임도헌    Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -68,8 +69,8 @@ export default function PreviewBlank({
             const [view, width] = useMemo(
                 () =>
                     index === 0 || index === pageCount - 1
-                        ? ['hidden', 'w-32']
-                        : ['display', 'w-64'],
+                        ? ['hidden', 'w-24 lg:w-32'] // Adjust size for cover pages
+                        : ['block', 'w-32 lg:w-48'], // Adjust size for other pages
                 [index]
             );
 
@@ -80,7 +81,7 @@ export default function PreviewBlank({
             return (
                 <div
                     key={`preview-${index}`}
-                    className="flex flex-col text-center mb-9 mt-4"
+                    className="flex flex-col text-center mb-4 mt-2 lg:mb-6 lg:mt-4"
                 >
                     <div>
                         <button
@@ -96,10 +97,10 @@ export default function PreviewBlank({
                         >
                             <div
                                 key={info.title}
-                                className={`flex flex-row ${width} h-32 overflow-hidden`}
+                                className={`flex flex-row ${width} h-20 lg:h-32 overflow-hidden`}
                             >
                                 <div
-                                    className={`relative border-solid border border-gray-200 shadow-md w-32 h-full shadow-neutral-100 mb-3 bg-center bg-no-repeat bg-cover`}
+                                    className={`relative border-solid border border-gray-200 shadow-md w-24 lg:w-32 h-full shadow-neutral-100 mb-3 bg-center bg-no-repeat bg-cover`}
                                     style={{
                                         backgroundImage: backgroundImage,
                                         backgroundSize: backgroundSize
@@ -108,17 +109,17 @@ export default function PreviewBlank({
                                     <div
                                         className={`${index === 0 ? 'display' : 'hidden'} select-none absolute bottom-0 flex flex-col justify-center items-center bg-white w-full h-[2rem]`}
                                     >
-                                        <p className="text-[0.4rem] text-slate-800 font-LaundryGothic">
+                                        <p className="text-[0.3rem] lg:text-[0.4rem] text-slate-800 font-LaundryGothic">
                                             {info.title}
                                         </p>
-                                        <p className="font-Hyemin text-slate-800 text-[0.3rem]">
+                                        <p className="font-Hyemin text-slate-800 text-[0.2rem] lg:text-[0.3rem]">
                                             {info.nickname} 작가
                                         </p>
                                     </div>
                                 </div>
 
                                 <div
-                                    className={`${view} border-solid border border-gray-200 shadow-md shadow-neutral-100 w-32 h-full pt-6 px-5`}
+                                    className={`${view} border-solid border border-gray-200 shadow-md shadow-neutral-100 w-24 lg:w-32 h-full pt-6 px-5`}
                                 >
                                     <canvas
                                         ref={canvasRef}
@@ -128,14 +129,16 @@ export default function PreviewBlank({
                             </div>
                         </button>
                     </div>
-                    <span className="text-sm text-stone-400 mt-2">{label}</span>
+                    <span className="text-xs lg:text-sm text-stone-400 mt-1 lg:mt-2">
+                        {label}
+                    </span>
                 </div>
             );
         });
     };
 
     return (
-        <div className="flex flex-row whitespace-nowrap space-x-6 px-1">
+        <div className="flex flex-row overflow-x-auto space-x-4 px-1 lg:space-x-6">
             {renderPreview()}
         </div>
     );
