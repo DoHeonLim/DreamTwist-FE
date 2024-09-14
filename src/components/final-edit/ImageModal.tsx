@@ -14,6 +14,7 @@ Date        Author   Status    Description
 2024.08.03  임도헌   Modified    코드 분리
 2024.08.05  임도헌   Modified   커버 생성때 사용할 수 있는 동화 제목 추가
 2024.08.08  임도헌   Modified   eslint 에러 처리
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 import React from 'react';
@@ -77,11 +78,11 @@ export default function ImageModal({
     return (
         <Portal>
             <div className="fixed left-0 top-0 flex h-full min-h-screen w-full items-center justify-center bg-dark/90 z-50 bg-black bg-opacity-50">
-                <div className="w-full max-w-[900px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
+                <div className="w-[300px] sm:w-[512px] md:w-[700px] lg:w-[820px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
                     <button
                         type="button"
                         onClick={() => onClose()}
-                        className="ml-[800px] mt-[20px]"
+                        className="ml-auto block mb-4 mt-5"
                     >
                         <Image
                             src="/images/cancleIcon.svg"

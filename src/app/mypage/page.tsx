@@ -6,6 +6,7 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.02  나경윤    Created
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 import { Metadata } from 'next';
@@ -24,14 +25,14 @@ export const metadata: Metadata = {
 
 export default async function Mypage() {
     return (
-        <div className="flex flex-col justify-center items-center mx-24 mt-16 mb-7">
-            <div className="bg-main-100 h-64 w-full mb-16 rounded-xl flex justify-center items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-44">
-                <div className="flex flex-row">
+        <div className="flex flex-col justify-center items-center">
+            <div className="bg-main-100 h-60 w-[90%] sm:w-[80%] mt-8 mb-4 md:mb-16 rounded-xl flex flex-col gap-y-2 sm:flex-row justify-center items-center px-2 sm:px-4 md:px-6 lg:px-12 xl:px-20 2xl:px-44">
+                <div className="flex flex-row items-center justify-center ">
                     <MyInfoList />
                 </div>
-                <div className="flex flex-row text-lg justify-center items-center ml-28 mt-16">
-                    <div className="w-px h-14 bg-main mr-5" />
-                    <div className="flex flex-col">
+                <div className="flex flex-row text-lg justify-center items-center">
+                    <div className="w-px h-32 hidden md:flex bg-main mr-5" />
+                    <div className="flex flex-row sm:flex-col text-[12px] ml-20 gap-x-2 sm:gap-x-0 sm:ml-0 sm:text-sm md:text-md lg:text-lg">
                         <Link href={'/edit-profile'}>
                             <div className="flex flex-row">
                                 <Image
@@ -61,7 +62,7 @@ export default async function Mypage() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col self-start mb-16 w-full">
+            <div className="flex flex-col mb-16 w-[80%]">
                 <p className="text-[1.4rem] font-semibold">나의 동화</p>
                 <MyBookList />
                 <hr className="border-[0.5px] border-gray-300 opacity-30 w-full mt-12 -mb-4" />
@@ -70,15 +71,15 @@ export default async function Mypage() {
                 </p>
                 <LikeBookList />
                 <hr className="border-[0.5px] border-gray-300 opacity-30 w-full mt-12 -mb-4" />
-                <div className="flex flex-row w-full space-x-20 mt-6">
+                <div className="flex flex-col md:flex-row w-full space-x-8 lg:space-x-20 mt-6">
                     <div className="flex flex-col flex-1">
-                        <p className="text-[1.4rem] font-semibold mt-16">
+                        <p className="text-[1.4rem] font-semibold mt-4 lg:mt-16">
                             나의 댓글
                         </p>
                         <MyCommentList />
                     </div>
                     <div className="flex flex-col flex-1">
-                        <p className="text-[1.4rem] font-semibold mt-16">
+                        <p className="text-[1.4rem] font-semibold mt-4 lg:mt-16">
                             나의 결제 내역
                         </p>
                         <MyPayList />

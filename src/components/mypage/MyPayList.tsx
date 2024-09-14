@@ -7,6 +7,7 @@ History
 Date        Author   Status    Description
 2024.08.05  나경윤    Created
 2024.08.08  김민규    Created   환불 요청 폼 
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -80,18 +81,18 @@ export default function MyPayList() {
                 {payInfo.length > 0 ? (
                     payInfo.map((item, index) => (
                         <div key={item.id}>
-                            <div className="flex flex-row justify-between mb-4">
+                            <div className="flex flex-col lg:flex-row justify-between mb-6">
                                 <div className="flex flex-col">
                                     <div className="flex flex-row items-center">
-                                        <p className="text-[1.1rem] font-medium text-main">
+                                        <p className="text-base lg:text-lg font-medium text-main">
                                             {item.description}
                                         </p>
                                     </div>
-                                    <div className="flex flex-row items-center text-[1.05rem] mt-0.5">
+                                    <div className="flex flex-row items-center text-xs xl:text-base mt-0.5">
                                         <p className="">
                                             결제 금액 : {item.amount}원
                                         </p>
-                                        <div className="flex flex-row items-center text-[0.9rem]">
+                                        <div className="flex flex-row items-center text-xs">
                                             <span className="ml-2">
                                                 ({item.method}
                                             </span>

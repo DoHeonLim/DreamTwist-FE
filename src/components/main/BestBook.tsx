@@ -6,6 +6,7 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.12  나경윤    Created
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -101,7 +102,7 @@ export default function BestBook() {
                             </button>
                         ))}
                     </div>
-                    <div className="flex flex-col mt-6 md:mt-0 md:ml-10 w-[300px] md:w-[400px]">
+                    <div className="flex flex-col mt-6 md:mt-0 md:ml-4 w-[300px]">
                         <p className="flex justify-center text-[1.2rem] text-left mb-6 mt-4 ml-1 text-main font-semibold">
                             BEST 꿈틀 작가
                         </p>
@@ -121,7 +122,7 @@ export default function BestBook() {
                                             {item.nickname} 작가
                                         </p>
                                     </div>
-                                    <hr className="w-[100%] border-[0.1rem] border-main-200 opacity-70 my-1.5 rounded-xl" />
+                                    <hr className="w-[100%] md:w-[80%] border-[0.1rem] border-main-200 opacity-70 my-1.5 rounded-xl" />
                                 </div>
                             ))}
                         </div>

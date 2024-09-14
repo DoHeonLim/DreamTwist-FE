@@ -8,6 +8,7 @@ Date        Author   Status    Description
 2024.07.20  김민규    Created
 2024.07.30  김민규    Modified  배경 디자인 변경
 2024.08.07  임도헌    Modified  편집하기 링크 create로 변경
+2024.09.14  임도헌    Modified  반응형 UI 수정
 
 */
 
@@ -33,7 +34,7 @@ const BuildStoryPage: React.FC = () => {
                     AI를 활용해서 글을 쓰거나 도움없이 직접 쓸 수 있어요.
                 </p>
 
-                <div className="flex gap-12 items-center mb-10">
+                <div className="flex flex-col md:flex-row gap-12 items-center mb-10">
                     <div className="relative bg-white p-8 rounded-lg shadow-md shadow-neutral-200 w-full max-w-md h-fit text-center border border-gray-200 flex flex-col items-center justify-center">
                         <div className="flex justify-center items-center text-green-500 text-4xl mb-7">
                             <Image
