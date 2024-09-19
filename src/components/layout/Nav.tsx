@@ -11,6 +11,7 @@ Date        Author   Status    Description
 2024.08.10  임도헌    Modified   네브바 fiexd 적용
 2024.09.11  임도헌    Modified   반응형 UI 적용
 2024.09.13  임도헌    Modified   반응형 UI 수정
+2024.09.19  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -47,8 +48,6 @@ export default function Nav() {
             setIsLogoutModalOpen(false);
         }
     };
-    // 768px 이하를 모바일로 간주
-    const isMobile = false;
 
     const isPay = pathname.startsWith('/pay');
     const isBuild = pathname.startsWith('/buildstory');
@@ -253,6 +252,7 @@ export default function Nav() {
                         <Link
                             href="/mypage"
                             className="py-4 text-xl hover:text-main"
+                            onClick={handleToggleMobileMenu}
                         >
                             마이페이지
                         </Link>

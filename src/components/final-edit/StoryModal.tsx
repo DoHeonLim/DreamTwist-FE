@@ -12,7 +12,8 @@ Date        Author   Status    Description
 2024.07.31  임도헌   Modified   portal 수정 및 react-hook-form으로 코드 변경
 2024.08.03  임도헌   Modified   코드 분리
 2024.08.08  임도헌   Modified    eslint 에러 처리
-2024.09.14  임도헌    Modified  반응형 UI 수정
+2024.09.14  임도헌   Modified  반응형 UI 수정
+2024.09.19  임도헌   Modified  반응형 UI 수정
 */
 
 import { useState } from 'react';
@@ -40,11 +41,11 @@ export default function StoryModal({
     return (
         <Portal>
             <div className="fixed left-0 top-0 flex h-full min-h-screen w-full items-center justify-center bg-dark/90 z-50 bg-black bg-opacity-50">
-                <div className="w-full max-w-[320px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
+                <div className="w-[300px] sm:w-[512px] md:w-[700px] lg:w-[820px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
                     <button
                         type="button"
                         onClick={onClose}
-                        className="ml-[800px] mt-[20px]"
+                        className="ml-auto block mb-4"
                     >
                         <Image
                             src="/images/cancleIcon.svg"
@@ -54,7 +55,9 @@ export default function StoryModal({
                         />
                     </button>
 
-                    <p className="text-2xl font-bold mb-12">내용 편집</p>
+                    <p className="text-2xl font-bold mb-2 md:mb-4 lg:mb-8 xl:mb-16">
+                        내용 편집
+                    </p>
                     <textarea
                         value={story}
                         onChange={(e) => setStory(e.target.value)}

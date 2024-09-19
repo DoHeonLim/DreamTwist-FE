@@ -17,7 +17,8 @@ Date        Author   Status    Description
 2024.08.03  임도헌   Modified  코드 분리
 2024.08.07  임도헌   Modified  fairytailId props 추가
 2024.08.08  임도헌   Modified  eslint 에러 처리
-2024.09.14  임도헌    Modified  반응형 UI 수정
+2024.09.14  임도헌   Modified  반응형 UI 수정
+2024.09.19  임도헌   Modified  반응형 UI 수정
 */
 
 'use client';
@@ -129,6 +130,14 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                 <div className="">
                     <p className="mb-2 font-bold text-2xl">{title}</p>
                 </div>
+                {/* 모바일 화면일 때 표지화면 및 페이지 명시 */}
+                <div className="flex lg:hidden items-end justify-end">
+                    <div className="text-xs font-bold">
+                        {currentPage === 0
+                            ? '표지 뒷면'
+                            : currentPage + currentPage - 1}
+                    </div>
+                </div>
 
                 <div className="flex justify-center items-center">
                     {/* 첫페이지면 화살표 작동 안함 */}
@@ -140,7 +149,7 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                     >
                         <ArrowIcon rotate="180" />
                     </button>
-                    <div className="w-[40px] h-[600px] md:h-[840px] lg:h-[400px] xl:h-[600px] flex items-end justify-end mr-2">
+                    <div className="hidden w-[40px] h-[600px] md:h-[840px] lg:h-[400px] xl:h-[600px] lg:flex items-end justify-end mr-2">
                         <div className="text-lg font-bold">
                             {currentPage === 0
                                 ? '표지 뒷면'
@@ -148,7 +157,7 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                         </div>
                     </div>
                     <div className="flex flex-col lg:flex-row">
-                        {/* 첫페이지면 표지임. 아니면 표지가 아니라 페이지를 보여준다. */}
+                        {/* 데크스톱 화면일 때 첫페이지면 표지임. 아니면 표지가 아니라 페이지를 보여준다. */}
                         <div className="flex w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[400px] lg:h-[400px] xl:w-[600px] xl:h-[600px] border-2 justify-center">
                             {/* 만약 페이지가 0이면 북 커버를 보여줘야 함*/}
                             {currentPage === 0 ? (
@@ -338,8 +347,8 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                             )}
                         </div>
                     </div>
-                    {/* 첫페이지면 표지임. 아니면 표지가 아니라 페이지를 보여준다. */}
-                    <div className="w-[40px] h-[600px] md:h-[840px] lg:h-[400px] xl:h-[600px] flex items-end justify-start ml-2">
+                    {/* 데스크톱 화면일 때 첫페이지면 표지임. 아니면 표지가 아니라 페이지를 보여준다. */}
+                    <div className="hidden w-[40px] h-[600px] md:h-[840px] lg:h-[400px] xl:h-[600px] lg:flex items-end justify-start ml-2">
                         <div className="text-lg font-bold">
                             {currentPage === 0
                                 ? '표지 앞면'
@@ -355,6 +364,14 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                     >
                         <ArrowIcon rotate="0" />
                     </button>
+                </div>
+                {/* 모바일 화면일 때 표지화면 및 페이지 명시 */}
+                <div className="flex lg:hidden items-end justify-start">
+                    <div className="text-xs font-bold">
+                        {currentPage === 0
+                            ? '표지 앞면'
+                            : currentPage + currentPage}
+                    </div>
                 </div>
             </div>
             {imageModalOpen && (

@@ -12,6 +12,7 @@ Date        Author   Status    Description
 2024.08.05  임도헌   Modified  ai 이미지 받아오기 추가
 2024.08.07  임도헌   Modified  fetchAiImage api 분리
 2024.08.07  임도헌   Modified  useaiImage로 커스텀 훅 분리
+2024.09.19  임도헌   Modified  반응형 UI 수정
 */
 
 import { useState } from 'react';
@@ -75,7 +76,7 @@ export default function AiModal({
                     {/* 메인 컨테이너를 flex로 변경하여 div, input, 이미지가 가로로 정렬되도록 설정 */}
                     <div className="flex items-start">
                         <div className="flex-grow">
-                            <div className="font-bold text-xl mb-4 text-center">
+                            <div className="font-bold text-[11px] lg:text-xl mb-4 text-center">
                                 <p>
                                     제목 또는 줄거리를 참고하여 원하는 장면을
                                     적어주세요.
@@ -90,7 +91,7 @@ export default function AiModal({
                                 placeholder="여기에 원하는 장면들을 묘사해주세요(예시: 강아지가 헤엄치는 모습)"
                                 value={prompt}
                                 onChange={handlePromptChange}
-                                className="bg-yellow-200 w-full h-[40px] rounded-lg mb-4 p-4"
+                                className="bg-yellow-200 w-full h-[40px] text-xs lg:textxl  rounded-lg mb-4 p-4"
                                 disabled={loading || imageUrl !== null}
                             />
                         </div>
