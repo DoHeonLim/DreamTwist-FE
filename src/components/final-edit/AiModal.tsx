@@ -13,6 +13,7 @@ Date        Author   Status    Description
 2024.08.07  임도헌   Modified  fetchAiImage api 분리
 2024.08.07  임도헌   Modified  useaiImage로 커스텀 훅 분리
 2024.09.19  임도헌   Modified  반응형 UI 수정
+2024.09.22  임도헌   Modified  반응형 UI 수정(ai 이미지 생성 후)
 */
 
 import { useState } from 'react';
@@ -74,8 +75,10 @@ export default function AiModal({
                     </button>
 
                     {/* 메인 컨테이너를 flex로 변경하여 div, input, 이미지가 가로로 정렬되도록 설정 */}
-                    <div className="flex items-start">
-                        <div className="flex-grow">
+                    <div className="flex items-start justify-center">
+                        <div
+                            className={`flex-grow ${imageUrl ? 'hidden md:block' : ''}`}
+                        >
                             <div className="font-bold text-[11px] lg:text-xl mb-4 text-center">
                                 <p>
                                     제목 또는 줄거리를 참고하여 원하는 장면을
@@ -112,7 +115,7 @@ export default function AiModal({
                         )}
                     </div>
 
-                    <div className="flex justify-end items-center mb-10">
+                    <div className="flex justify-end items-center my-10">
                         <p className="font-bold text-lg mr-4 text-gray-600">
                             잔여 나뭇잎 : {credit}
                         </p>

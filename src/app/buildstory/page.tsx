@@ -9,6 +9,7 @@ Date        Author   Status    Description
 2024.07.30  김민규    Modified  배경 디자인 변경
 2024.08.07  임도헌    Modified  편집하기 링크 create로 변경
 2024.09.14  임도헌    Modified  반응형 UI 수정
+2024.09.22  임도헌    Modified  반응형 UI 수정
 
 */
 
@@ -26,7 +27,7 @@ const BuildStoryPage: React.FC = () => {
                 backgroundRepeat: 'no-repeat'
             }}
         >
-            <div className="text-center w-full max-w-4xl mb-32">
+            <div className="text-center w-full max-w-4xl my-32">
                 <h1 className="text-2xl font-bold mb-6">
                     이야기를 어떻게 쓸까요?
                 </h1>
