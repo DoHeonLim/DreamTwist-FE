@@ -6,6 +6,7 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.03  나경윤    Created
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -58,7 +59,7 @@ export default function MyBookList() {
                 </p>
             ) : (
                 <>
-                    <div className="grid md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8 w-full">
+                    <div className="grid place-items-center md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8 w-full">
                         {myBooks.slice(0, bookCount).map((item) => (
                             <button
                                 type="button"

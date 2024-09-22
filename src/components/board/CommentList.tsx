@@ -6,6 +6,8 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.05  나경윤    Created
+2024.09.13  임도헌    Modified  반응형 UI로 변경
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -87,7 +89,7 @@ export default function CommentList({ id }: { id: string }) {
     };
 
     return (
-        <div className="flex flex-col w-[66.5rem] h-full">
+        <div className="flex flex-col w-3/5 min-w-[320px] lg:min-w-[520px] max-w-screen h-full">
             <div className="w-full">
                 <p className="text-xl font-semibold text-left my-6">댓글</p>
                 <CommentBox

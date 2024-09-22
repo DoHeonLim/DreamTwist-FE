@@ -7,6 +7,7 @@ History
 Date        Author   Status    Description
 2024.07.22  나경윤    Created
 2024.07.23  나경윤    Modified  무한 스크롤 추가
+2024.09.13  임도헌    Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -108,7 +109,7 @@ export default function BookList({ fairytaleInfo }: BookListProps) {
             {/* 데이터 있을 때 */}
             {fairytaleInfo.length > 0 && (
                 <>
-                    <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-y-12 gap-x-8 my-10 z-0">
+                    <div className="grid place-items-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-y-12 gap-x-8 my-10 z-0">
                         {items.map((item) => (
                             <button
                                 type="button"
@@ -116,7 +117,7 @@ export default function BookList({ fairytaleInfo }: BookListProps) {
                                 onClick={() =>
                                     handleBookClick(item.fairytaleId)
                                 }
-                                className="relative max-w-[20rem] w-full aspect-[4/5] border border-gray-200 rounded-xl bg-white overflow-hidden transition-transform animate-scaleIn"
+                                className="relative max-w-[20rem] w-[250px] sm:w-full aspect-[4/5] border border-gray-200 rounded-xl bg-white overflow-hidden transition-transform animate-scaleIn"
                             >
                                 <div
                                     className="absolute top-0 w-full h-full overflow-hidden"

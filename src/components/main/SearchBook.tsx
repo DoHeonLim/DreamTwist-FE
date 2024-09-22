@@ -5,8 +5,9 @@ Author : 나경윤
 
 History
 Date        Author   Status    Description
-2024.08.06  나경윤    Created
+2024.08.06  나경윤   Created
 2024.08.10  임도헌   Modified  동화 생성하다 나가고 다른 페이지 갔을 때 로컬 스토리지 비우기
+2024.09.13  임도헌   Modified  반응형 UI로 변경
 */
 
 'use client';
@@ -96,8 +97,8 @@ export default function SearchBook() {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center">
-                <div className="flex flex-row space-x-6">
+            <div className="flex flex-col justify-center items-center w-full">
+                <div className="flex md:justify-center overflow-x-scroll scrollbar-hide md:overflow-auto space-x-4 py-2 w-full">
                     {tags.map((tag) => (
                         <Tag
                             key={tag}
@@ -108,14 +109,14 @@ export default function SearchBook() {
                     ))}
                 </div>
             </div>
-            <div className="flex flex-row my-8 space-x-6">
-                <div className="relative">
+            <div className="flex flex-col md:flex-row my-8 md:space-x-6 space-y-4 md:space-y-0 w-full justify-center">
+                <div className="relative w-full md:w-auto order-2 md:order-1 md:mt-0 mt-2">
                     <input
                         type="text"
                         value={searchInputValue}
                         onChange={handleInputChange}
                         placeholder="동화 제목 검색"
-                        className="w-[26rem] h-[3.2rem] py-3 pl-4 border border-gray-200 rounded-lg placeholder:text-base focus:outline-gray-200"
+                        className="w-full md:w-[26rem] h-[3.2rem] py-3 pl-4 border border-gray-200 rounded-lg placeholder:text-base focus:outline-gray-200"
                     />
                     <button
                         type="button"
@@ -130,10 +131,13 @@ export default function SearchBook() {
                         />
                     </button>
                 </div>
-                <div ref={dropdownRef} className="relative z-10">
+                <div
+                    ref={dropdownRef}
+                    className="relative z-10 w-full md:w-auto order-1 md:order-2"
+                >
                     <button
                         type="button"
-                        className="flex items-center justify-between w-[10rem] h-[3.2rem] px-6 text-left border border-gray-200 rounded-lg"
+                        className="flex items-center justify-between w-full md:w-[10rem] h-[3.2rem] px-6 text-left border border-gray-200 rounded-lg"
                         onClick={handleDropdown}
                     >
                         <p>{label}</p>
@@ -144,7 +148,7 @@ export default function SearchBook() {
                         )}
                     </button>
                     {isDropDown && (
-                        <ul className="absolute bg-white w-[10rem] h-fit text-left border border-gray-200 rounded text-base">
+                        <ul className="absolute bg-white w-full md:w-[10rem] text-left border border-gray-200 rounded text-base">
                             {options.map((option, index) => (
                                 <li
                                     key={option}

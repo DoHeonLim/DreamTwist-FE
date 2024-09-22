@@ -6,6 +6,7 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.12  나경윤    Created
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -61,8 +62,8 @@ export default function BestBook() {
 
             {/* 데이터 있을 때 */}
             {bestBooks.length > 0 && (
-                <div className="flex flex-row">
-                    <div className="flex flex-row space-x-6">
+                <div className="flex flex-col lg:flex-row space-y-4 md:gap-x-6">
+                    <div className="flex flex-col lg:flex-row space-y-4 md:gap-x-6 justify-center items-center">
                         {bestBooks.map((item) => (
                             <button
                                 type="button"
@@ -101,15 +102,15 @@ export default function BestBook() {
                             </button>
                         ))}
                     </div>
-                    <div className="flex flex-col ml-10">
-                        <p className="text-[1.2rem] text-left mb-6 mt-4 ml-1 text-main font-semibold">
+                    <div className="flex flex-col mt-6 md:mt-0 md:ml-4 w-[300px]">
+                        <p className="flex justify-center text-[1.2rem] text-left mb-6 mt-4 ml-1 text-main font-semibold">
                             BEST 꿈틀 작가
                         </p>
 
                         <div className="flex flex-col space-y-4 ml-1">
                             {bestBooks.map((item) => (
                                 <div className="flex flex-col">
-                                    <div className="flex flex-row">
+                                    <div className="flex flex-row items-center">
                                         <Image
                                             src={'/images/crown.svg'}
                                             alt="star-icon"
@@ -121,7 +122,7 @@ export default function BestBook() {
                                             {item.nickname} 작가
                                         </p>
                                     </div>
-                                    <hr className="w-[120%] border-[0.1rem] border-main-200 opacity-70 my-1.5 rounded-xl" />
+                                    <hr className="w-[100%] md:w-[80%] border-[0.1rem] border-main-200 opacity-70 my-1.5 rounded-xl" />
                                 </div>
                             ))}
                         </div>

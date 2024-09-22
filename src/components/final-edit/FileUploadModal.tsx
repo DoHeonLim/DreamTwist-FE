@@ -32,11 +32,11 @@ export default function FileUploadModal({
     return (
         <Portal>
             <div className="fixed left-0 top-0 flex h-full min-h-screen w-full items-center justify-center bg-dark/90 z-50 bg-black bg-opacity-50">
-                <div className="w-full max-w-[900px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
+                <div className="w-[300px] sm:w-[512px] md:w-[700px] lg:w-[820px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
                     <button
                         type="button"
                         onClick={onClose}
-                        className="ml-[800px] mt-[20px]"
+                        className="ml-auto block mb-4 mt-5"
                     >
                         <Image
                             src="/images/cancleIcon.svg"
@@ -69,18 +69,17 @@ export default function FileUploadModal({
                     </div>
                     <div className="flex justify-center m-10">
                         {image ? ( // 이미지가 있을 때만 렌더링
-                            <div className="flex justify-center m-10 border-[3px] border-gray-400">
+                            <div className="relative flex justify-center w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] border-[3px] border-gray-400">
                                 <Image
                                     src={image}
-                                    width={400}
-                                    height={400}
+                                    fill
                                     alt="image preview"
-                                    className="object-fit w-[400px] h-[400px]"
+                                    className="object-fit "
                                 />
                             </div>
                         ) : (
                             // 이미지가 없으면 빈 div 보여준다.
-                            <div className="flex justify-center items-center font-bold w-[400px] h-[400px] border-[3px] border-gray-400">
+                            <div className="flex justify-center items-center w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] font-bold border-[3px] border-gray-400">
                                 빈 이미지
                             </div>
                         )}

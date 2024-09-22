@@ -14,6 +14,8 @@ Date        Author   Status    Description
 2024.08.03  임도헌   Modified    코드 분리
 2024.08.05  임도헌   Modified   커버 생성때 사용할 수 있는 동화 제목 추가
 2024.08.08  임도헌   Modified   eslint 에러 처리
+2024.09.14  임도헌   Modified  반응형 UI 수정
+2024.09.19  임도헌   Modified  반응형 UI 수정
 */
 
 import React from 'react';
@@ -77,11 +79,11 @@ export default function ImageModal({
     return (
         <Portal>
             <div className="fixed left-0 top-0 flex h-full min-h-screen w-full items-center justify-center bg-dark/90 z-50 bg-black bg-opacity-50">
-                <div className="w-full max-w-[900px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
+                <div className="w-[300px] sm:w-[512px] md:w-[700px] lg:w-[820px] rounded-lg bg-white text-center first-line: border-[1px] border-main px-8">
                     <button
                         type="button"
                         onClick={() => onClose()}
-                        className="ml-[800px] mt-[20px]"
+                        className="ml-auto block mb-4 mt-5"
                     >
                         <Image
                             src="/images/cancleIcon.svg"
@@ -93,18 +95,20 @@ export default function ImageModal({
                     <p className="text-2xl font-bold mb-12">
                         이미지 생성 방식을 선택해주세요
                     </p>
-                    <div className=" flex bg-green-200 w-full h-[300px] rounded-xl justify-between items-center p-8 mb-8 ">
+                    <div className=" flex flex-col space-y-4 md:space-y-0 md:flex-row bg-green-200 w-full h-[350px] rounded-xl justify-around items-center py-8 mb-8">
                         <button
                             type="button"
                             onClick={() => setPaletteModalOpen(true)}
-                            className="flex flex-col w-[200px] h-[200px] bg-main rounded-lg ml-10 justify-center items-center hover:bg-green-600"
+                            className="flex flex-col w-[100px] h-[100px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] bg-main rounded-lg justify-center items-center hover:bg-green-600"
                         >
-                            <Image
-                                src="/images/paletteIcon.svg"
-                                width={100}
-                                height={100}
-                                alt="palette"
-                            />
+                            <div className="relative w-[50px] h-[50px] md:w-[75px] md:h-[75px] lg:w-[100px] lg:h-[100px]">
+                                <Image
+                                    src="/images/paletteIcon.svg"
+                                    fill
+                                    className="object-cover mx-auto"
+                                    alt="picture"
+                                />
+                            </div>
                             <p className="font-bold text-xl text-white">
                                 그림판
                             </p>
@@ -112,14 +116,16 @@ export default function ImageModal({
                         <button
                             type="button"
                             onClick={() => setFileUploadModalOpen(true)}
-                            className="flex flex-col w-[200px] h-[200px] bg-main rounded-lg justify-center items-center hover:bg-green-600"
+                            className="flex flex-col w-[100px] h-[100px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] bg-main rounded-lg justify-center items-center hover:bg-green-600"
                         >
-                            <Image
-                                src="/images/pictureIcon.svg"
-                                width={100}
-                                height={100}
-                                alt="palette"
-                            />
+                            <div className="relative w-[50px] h-[50px] md:w-[75px] md:h-[75px] lg:w-[100px] lg:h-[100px]">
+                                <Image
+                                    src="/images/pictureIcon.svg"
+                                    fill
+                                    className="object-cover mx-auto"
+                                    alt="picture"
+                                />
+                            </div>
                             <p className="font-bold text-xl text-white">
                                 사진 첨부
                             </p>
@@ -127,14 +133,16 @@ export default function ImageModal({
                         <button
                             type="button"
                             onClick={() => setAiModalOpen(true)}
-                            className="flex flex-col w-[200px] h-[200px] bg-main rounded-lg mr-10 justify-center items-center hover:bg-green-600"
+                            className="flex flex-col w-[100px] h-[100px] md:w-[150px] md:h-[150px] lg:w-[200px] lg:h-[200px] bg-main rounded-lg justify-center items-center hover:bg-green-600"
                         >
-                            <Image
-                                src="/images/aiIcon.svg"
-                                width={100}
-                                height={100}
-                                alt="palette"
-                            />
+                            <div className="relative w-[50px] h-[50px] md:w-[75px] md:h-[75px] lg:w-[100px] lg:h-[100px]">
+                                <Image
+                                    src="/images/aiIcon.svg"
+                                    fill
+                                    className="object-cover mx-auto"
+                                    alt="palette"
+                                />
+                            </div>
                             <p className="font-bold text-xl text-white">AI</p>
                         </button>
                     </div>

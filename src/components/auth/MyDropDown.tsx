@@ -8,6 +8,8 @@ Date        Author   Status    Description
 2024.08.06  나경윤    Created
 2024.08.07  나경윤    Modified   로그아웃 연결
 2024.08.10  임도헌    Modified  로그아웃 모달 추가
+2024.09.11  임도헌    Modified   반응형 UI 적용
+2024.09.13  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -19,7 +21,11 @@ import LogoutModal from '@/components/auth/LogoutModal';
 
 const options = ['마이페이지', '로그아웃'];
 
-export default function MyDropdown() {
+export default function MyDropdown({
+    handleToggleMobileMenu
+}: {
+    handleToggleMobileMenu?: () => void;
+}) {
     const router = useRouter();
     const [showModal, setShowModal] = useState(false);
 
@@ -58,7 +64,10 @@ export default function MyDropdown() {
                         <button
                             type="button"
                             className="w-full text-center py-1.5"
-                            onClick={() => handleOptionClick(index)}
+                            onClick={() => {
+                                handleOptionClick(index);
+                                handleToggleMobileMenu?.();
+                            }}
                         >
                             {option}
                         </button>

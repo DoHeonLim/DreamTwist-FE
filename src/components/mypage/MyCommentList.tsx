@@ -6,6 +6,7 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.05  나경윤    Created
+2024.09.14  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -70,13 +71,13 @@ export default function MyCommentList() {
                                 )
                             }
                         >
-                            <div className="flex flex-row justify-between">
+                            <div className="flex flex-col lg:flex-row justify-between">
                                 <div>
                                     <p className="text-[1.05rem]">
                                         {item.content}
                                     </p>
                                 </div>
-                                <div className="flex flex-row items-center">
+                                <div className="flex flex-col lg:flex-row items-start lg:items-center">
                                     <p
                                         className={`text-[1.05rem] font-medium ${
                                             item.title === '삭제된 동화입니다.'
@@ -86,7 +87,7 @@ export default function MyCommentList() {
                                     >
                                         {item.title}
                                     </p>
-                                    <div className="w-px h-4 bg-gray-300 mx-3" />
+                                    <div className="w-px h-4 bg-gray-300 mx-3 hidden lg:flex" />
                                     <p className="text-[0.9rem] text-gray-400 mr-6">
                                         {item.createdAt}
                                     </p>

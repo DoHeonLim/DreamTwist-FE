@@ -6,6 +6,8 @@ Author : 나경윤
 History
 Date        Author   Status    Description
 2024.08.06  나경윤    Created
+2024.09.11  임도헌    Modified  반응형 UI 적용
+2024.09.13  임도헌    Modified  반응형 UI 수정
 */
 
 'use client';
@@ -21,7 +23,15 @@ interface UserInfo {
     profileImage: string;
 }
 
-export default function LoginNav({ userInfo }: { userInfo: UserInfo }) {
+export default function LoginNav({
+    userInfo,
+    handleToggleMobileMenu,
+    isMobile
+}: {
+    userInfo: UserInfo;
+    handleToggleMobileMenu: () => void;
+    isMobile: boolean;
+}) {
     const pathname = usePathname();
     const { isDropDown, dropdownRef, handleDropdown, setIsDropDown } =
         useDropdown();
@@ -33,7 +43,7 @@ export default function LoginNav({ userInfo }: { userInfo: UserInfo }) {
     }, [pathname, setIsDropDown]);
 
     return (
-        <div className="relative inline-block mt-1" ref={dropdownRef}>
+        <div className="relative" ref={dropdownRef}>
             <div className="flex flex-row items-center">
                 <p className="text-main mr-3 font-medium">
                     {userInfo.nickname}
@@ -56,7 +66,11 @@ export default function LoginNav({ userInfo }: { userInfo: UserInfo }) {
             </div>
             {isDropDown && (
                 <div className="absolute -right-6 top-full mt-2 z-50">
-                    <MyDropdown />
+                    <MyDropdown
+                        handleToggleMobileMenu={
+                            isMobile ? handleToggleMobileMenu : undefined
+                        }
+                    />
                 </div>
             )}
         </div>

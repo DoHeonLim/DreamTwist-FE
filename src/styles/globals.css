@@ -90,8 +90,18 @@ body {
 }
 
 /** texto: 글 세로로 바꾸는 css  */
-.texto {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    letter-spacing: 1px;
+
+@layer utilities {
+    .texto {
+        writing-mode: horizontal-tb;
+    }
+    @layer utilities {
+        @media (min-width: 1024px) {
+            .texto-lg {
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+                letter-spacing: 1px;
+            }
+        }
+    }
 }

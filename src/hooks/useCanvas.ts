@@ -8,12 +8,11 @@ Date        Author   Status    Description
 2024.08.03  임도헌   Created
 2024.08.03  임도헌   Modified  캔버스훅 추가
 2024.08.05  임도헌   Modified  colorOptions 분리
+2024.09.19  임도헌   Modified  캔버스 반응형 UI 수정
 */
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
-const CANVAS_WIDTH: number = 600;
-const CANVAS_HEIGHT: number = 600;
 const CANVAS_LINE: number = 5;
 
 export const colorOptions = [
@@ -31,6 +30,7 @@ export const colorOptions = [
 
 export const useCanvas = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const textInputRef = useRef<HTMLInputElement>(null);
 
@@ -39,23 +39,82 @@ export const useCanvas = () => {
     const [isFilling, setIsFilling] = useState<boolean>(false);
     const [lineWidth, setLineWidth] = useState<number>(0);
     const [color, setColor] = useState<string>('#000000');
+    const [containerLength, setContainerLength] = useState({
+        width: 0,
+        height: 0
+    });
+
+    const updateDimensions = useCallback(() => {
+        if (containerRef.current) {
+            const { clientWidth, clientHeight } = containerRef.current;
+            setContainerLength({
+                width: clientWidth,
+                height: clientHeight
+            });
+        }
+    }, []);
+
+    useEffect(() => {
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+
+        // 초기 크기 설정을 위한 setTimeout
+        const timer = setTimeout(updateDimensions, 0);
+
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+            clearTimeout(timer);
+        };
+    }, [updateDimensions]);
 
     useEffect(() => {
         setLineWidth(CANVAS_LINE);
     }, []);
 
     useEffect(() => {
-        if (canvasRef.current) {
-            const context = canvasRef.current.getContext('2d');
-            if (context) {
-                context.lineWidth = lineWidth;
-                context.lineCap = 'round';
-                context.strokeStyle = color;
-                context.fillStyle = color;
-                setCtx(context);
+        if (
+            canvasRef.current &&
+            containerLength.width > 0 &&
+            containerLength.height > 0
+        ) {
+            const canvas = canvasRef.current;
+            const newCtx = canvas.getContext('2d');
+
+            if (
+                newCtx &&
+                (!ctx ||
+                    canvas.width !== containerLength.width ||
+                    canvas.height !== containerLength.height)
+            ) {
+                // 기존 그림 저장
+                const imageData = ctx?.getImageData(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+                // 캔버스 크기 조정
+                canvas.width = containerLength.width;
+                canvas.height = containerLength.height;
+
+                // 기존 그림 복원
+                if (imageData) {
+                    newCtx.putImageData(imageData, 0, 0);
+                }
+
+                setCtx(newCtx);
             }
         }
-    }, [lineWidth, color]);
+    }, [containerLength, ctx]);
+
+    useEffect(() => {
+        if (ctx) {
+            ctx.lineWidth = lineWidth;
+            ctx.strokeStyle = color;
+            ctx.fillStyle = color;
+        }
+    }, [ctx, lineWidth, color]);
 
     /**
      * handleMouseMove: 마우스 좌표를 이용해서 선 그리는 함수
@@ -63,7 +122,10 @@ export const useCanvas = () => {
      */
     const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
         if (isPainting && ctx) {
-            ctx.lineTo(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
+            const rect = canvasRef.current?.getBoundingClientRect();
+            const x = event.clientX - (rect?.left || 0);
+            const y = event.clientY - (rect?.top || 0);
+            ctx.lineTo(x, y);
             ctx.stroke();
         }
     };
@@ -71,10 +133,14 @@ export const useCanvas = () => {
     /** handleMouseDown: 마우스 누른 상태
      * @description 마우스를 누른 상태면 isPainting이 true가 된다. 이 상태를 이용해서 handleMouseMove를 사용한다.
      */
-    const handleMouseDown = () => {
+    const handleMouseDown = (event: React.MouseEvent<HTMLCanvasElement>) => {
         if (ctx) {
             setIsPainting(true);
+            const rect = canvasRef.current?.getBoundingClientRect();
+            const x = event.clientX - (rect?.left || 0);
+            const y = event.clientY - (rect?.top || 0);
             ctx.beginPath();
+            ctx.moveTo(x, y);
         }
     };
 
@@ -108,7 +174,7 @@ export const useCanvas = () => {
     /** handleModeClick: 채우기 모드일때 */
     const handleCanvasFillClick = () => {
         if (isFilling && ctx) {
-            ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            ctx.fillRect(0, 0, containerLength.width, containerLength.height);
         }
     };
 
@@ -118,9 +184,19 @@ export const useCanvas = () => {
     const handleClearClick = () => {
         if (window.confirm('정말 그림을 지우시겠습니까?')) {
             if (ctx) {
-                ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                ctx.clearRect(
+                    0,
+                    0,
+                    containerLength.width,
+                    containerLength.height
+                );
                 ctx.fillStyle = 'white';
-                ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                ctx.fillRect(
+                    0,
+                    0,
+                    containerLength.width,
+                    containerLength.height
+                );
             }
         }
     };
@@ -151,7 +227,13 @@ export const useCanvas = () => {
             const image = document.createElement('img');
             image.src = url;
             image.onload = () => {
-                ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                ctx.drawImage(
+                    image,
+                    0,
+                    0,
+                    containerLength.width,
+                    containerLength.height
+                );
                 URL.revokeObjectURL(url);
                 if (fileInputRef.current) {
                     fileInputRef.current.value = ''; // Reset file input after image load
@@ -198,12 +280,14 @@ export const useCanvas = () => {
 
     return {
         canvasRef,
+        containerRef,
         fileInputRef,
         textInputRef,
         ctx,
         color,
         isFilling,
         lineWidth,
+        containerLength,
         setColor,
         handleMouseMove,
         handleMouseDown,
