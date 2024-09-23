@@ -262,10 +262,10 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                         </div>
                         {/* 책의 제목과 지은이 꿈틀 로고 들어감 */}
                         <div className="w-[280px] h-[40px] md:w-[400px] lg:w-[60px] lg:h-[400px] xl:h-[600px] border-2 flex flex-row lg:flex-col justify-between items-center">
-                            <p className="ml-10 texto lg:texto-lg lg:ml-0 lg:mt-10 lg:text-xl">
+                            <p className="ml-5 texto lg:texto-lg lg:ml-0 lg:mt-5 lg:text-xl h-[40px] lg:h-[400px] xl:h-[600px] overflow-auto whitespace-nowrap flex justify-start items-center">
                                 {title}
                             </p>
-                            <p className="texto lg:texto-lg lg:text-lg">
+                            <p className="ml-5 texto lg:texto-lg lg:text-lg lg:ml-0 lg:mt-5 overflow-auto whitespace-nowrap">
                                 {nickname} 지음
                             </p>
                             <Image
@@ -273,7 +273,7 @@ export default function Book({ fairytaleId = 0 }: FairytailFormProps) {
                                 alt="logo"
                                 width={50}
                                 height={50}
-                                className="mr-10 lg:mb-10 lg:mr-0"
+                                className="mr-5 lg:mb-5 lg:mr-0"
                             />
                         </div>
                         <div className="flex w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[400px] lg:h-[400px] xl:w-[600px] xl:h-[600px] border-2 justify-center">
