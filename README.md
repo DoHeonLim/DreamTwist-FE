@@ -358,6 +358,12 @@
 | <img width="400" height="220" src="https://github.com/user-attachments/assets/9d919562-0a21-419b-a58e-c27206e60bbb"> |
 
 
+
+
+
+
+
+
 ## :star: 페이지별 기능 - 모바일 기준
 
 ### 메인페이지
@@ -368,7 +374,7 @@
 
 |                                                     명예의 전당                                                      |                                                     무한 스크롤                                                      |
 | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/98ff3838-ee03-49ba-9ab2-8466414ccb61"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/ec34b5b1-095c-4f56-a681-90a55601c635"> |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/192762ff-c142-45ec-94cd-bda2c1bdb2fe"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/ec34b5b1-095c-4f56-a681-90a55601c635"> |
 |                                                    **태그 검색**                                                     |                                                 **정렬 / 제목 검색**                                                 |
 | <img width="400" height="220" src="https://github.com/user-attachments/assets/7d5ebd37-300f-4576-8310-4c4f7b21840b"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/5df78657-2d54-4b6a-abdc-ca17dfc88481"> |
 
@@ -424,11 +430,9 @@
     -   toss payments 이용
     -   환불 사유 입력 및 환불 요청
 
-|                                                     포인트 충전                                                      |                                                  toss payments 결제                                                  |
+|                                                     toss payments 결제                                                       |                                                  환불 요청                                                 |
 | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/1e19bc1d-2686-45c8-b1e2-8d118d202bb3"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/65993346-31b7-41e6-a31f-6c9f6870db83"> |
-|                                                    **결제 완료**                                                     |                                                    **환불 요청**                                                     |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/3aecafd7-63ab-41fd-8252-fb0e7e0397be"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/619f9b43-4a59-4eea-8d2e-6883549f89e4"> |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/db3e55f6-aa51-45dc-8cd2-709ab6fdb1dd"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/91f93a1c-585b-47bc-858d-5c92d874f6a5"> |
 
 ### 마이페이지
 
