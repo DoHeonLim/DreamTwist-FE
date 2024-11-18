@@ -4,10 +4,12 @@
 
 세상에 하나뿐인 동화, 꿈틀에서 마음껏 즐겨보세요!
 
-<img width="700" height="400" src="https://github.com/user-attachments/assets/60565221-fa84-420f-a0e3-a62d46d9e8fd">
+<img width="700" height="400" src="https://github.com/user-attachments/assets/60565221-fa84-420f-a0e3-a62d46d9e8fd">  <img width="300" height="400" src="https://github.com/user-attachments/assets/1fe51949-05f4-4d23-aae0-53ccc6228f9d">
 
 <br/>
 <br/>
+
+
 
 ## :bulb: 프로젝트 소개
 
@@ -354,3 +356,90 @@
 | <img width="400" height="220" src="https://github.com/user-attachments/assets/6350f2cf-07e7-4360-ad50-003c00d93464"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/bcad1f3c-eea4-42ef-b58e-eff764ff1727"> |
 |                                                    **회원 탈퇴**                                                     |
 | <img width="400" height="220" src="https://github.com/user-attachments/assets/9d919562-0a21-419b-a58e-c27206e60bbb"> |
+
+
+## :star: 페이지별 기능 - 모바일 기준
+
+### 메인페이지
+
+-   베스트 동화 및 작가
+-   태그, 제목별 검색
+-   최신순 / 인기순 / 조회순 정렬
+
+|                                                     명예의 전당                                                      |                                                     무한 스크롤                                                      |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/98ff3838-ee03-49ba-9ab2-8466414ccb61"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/ec34b5b1-095c-4f56-a681-90a55601c635"> |
+|                                                    **태그 검색**                                                     |                                                 **정렬 / 제목 검색**                                                 |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/7d5ebd37-300f-4576-8310-4c4f7b21840b"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/5df78657-2d54-4b6a-abdc-ca17dfc88481"> |
+
+### 로그인 / 회원가입
+
+-   소셜 로그인 (구글)
+-   로그인 후 닉네임 + 프로필 이미지
+    -   프로필 이미지 클릭 시 마이페이지 / 로그아웃 버튼
+
+|                                                  로그인 / 회원가입                                                   |                                                   로그인 후 네비바                                                   |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/5518195f-488e-4075-b38c-e68c824efc32"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/9c098a7e-36bd-4a78-bbfa-d76b1f9c354c"> |
+
+### 동화 만들기
+
+-   동화 직접 쓰기 - 제목 / 테마 / 줄거리
+-   AI 동화 생성
+    -   제목 / 테마 / 줄거리 생성
+    -   편집
+-   이미지 삽입
+    -   AI 이미지 생성
+    -   그림판 기능
+    -   이미지 파일 첨부
+
+|                                                 직접 쓰기 / AI 사용                                                  |                                                      직접 쓰기                                                       |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/a833d325-8a0c-4837-82d8-7157363a31b8"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/3ffde973-4f46-48b6-9499-e200080e2ccc"> |
+|                                                  **AI 줄거리 생성**                                                  |                                              **AI 줄거리 생성 - 편집**                                               |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/a1e5aab2-87b7-4290-b3e7-9f375d677de2"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/c008b1ce-5267-49ab-a1e9-05385ab42b51"> |
+|                                           **이미지 삽입 - AI 이미지 생성**                                           |                                            **이미지 삽입 - 그림판 기능**                                             |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/15c59495-8a96-48e8-9372-582d4f18c4de"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/1f44f413-520b-4017-b24c-cc0df6c881aa"> |
+|                                             **이미지 삽입 - 사진 첨부**                                              |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/43563a6b-b8a1-4588-ae61-ff1d6524c585"> |
+
+### 동화 게시판
+
+-   동화 보기
+    -   조회수 / 좋아요 기능
+    -   내가 쓴 동화 - 수정 / 삭제 기능
+    -   스크롤 뷰와 상호작용
+-   댓글
+    -   작성 / 수정 / 삭제
+    -   페이지네이션
+
+|                                                      동화 보기                                                       |                                                      댓글 작성/수정/삭제                                                |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/e751dc2c-2be1-49f6-866b-8c9be595ec9e"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/786eb1dd-b882-4ddc-b554-4557817c48a8"> |
+
+### 결제페이지
+
+-   꿈틀 포인트 충전
+    -   포인트별 결제
+    -   toss payments 이용
+    -   환불 사유 입력 및 환불 요청
+
+|                                                     포인트 충전                                                      |                                                  toss payments 결제                                                  |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/1e19bc1d-2686-45c8-b1e2-8d118d202bb3"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/65993346-31b7-41e6-a31f-6c9f6870db83"> |
+|                                                    **결제 완료**                                                     |                                                    **환불 요청**                                                     |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/3aecafd7-63ab-41fd-8252-fb0e7e0397be"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/619f9b43-4a59-4eea-8d2e-6883549f89e4"> |
+
+### 마이페이지
+
+-   내 동화 개수, 받은 좋아요 개수, 포인트 조회
+-   내 동화, 좋아요한 동화, 내가 쓴 댓글, 결제 내역 조회
+-   프로필 수정
+    -   프로필 이미지, 닉네임 수정
+-   회원 탈퇴
+
+|                                                      마이페이지                                                      |                                                     프로필 수정                                                      |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/fa3cc7c5-315a-4dbf-895b-cff820c40962"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/14686a7b-fc3c-45d8-91b3-62039cb861e7"> |
+|                                                    **회원 탈퇴**                                                     |
+| <img width="400" height="220" src="https://github.com/user-attachments/assets/3b6ccae3-31e3-48f4-8cfe-480e167f633b"> |
