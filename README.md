@@ -358,81 +358,40 @@
 | <img width="400" height="220" src="https://github.com/user-attachments/assets/9d919562-0a21-419b-a58e-c27206e60bbb"> |
 
 
-
-
-
-
-
-
 ## :star: 페이지별 기능 - 모바일 기준
 
 ### 메인페이지
 
--   베스트 동화 및 작가
--   태그, 제목별 검색
--   최신순 / 인기순 / 조회순 정렬
-
-|                                                     명예의 전당                                                      |                                                     무한 스크롤                                                      |
-| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/192762ff-c142-45ec-94cd-bda2c1bdb2fe"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/ec34b5b1-095c-4f56-a681-90a55601c635"> |
-|                                                    **태그 검색**                                                     |                                                 **정렬 / 제목 검색**                                                 |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/7d5ebd37-300f-4576-8310-4c4f7b21840b"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/5df78657-2d54-4b6a-abdc-ca17dfc88481"> |
+|                                                     명예의 전당                                                      |                                                     무한 스크롤                                                      |                                                    **태그 검색**                                                     |                                                 **정렬 / 제목 검색**                                                 |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |:------------------------------------------------------------------------------------------------------------------: |:------------------------------------------------------------------------------------------------------------------: |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/66b096db-888e-4020-b8da-8bc9fa813fa1"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/6d1bef6c-a0b5-4ab2-ab8a-510517f69054"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/55597a30-61bf-4210-8030-7547322f9c9f"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/872f5a42-ba5a-401f-bfef-6947344e5f48"> |
 
 ### 로그인 / 회원가입
 
--   소셜 로그인 (구글)
--   로그인 후 닉네임 + 프로필 이미지
-    -   프로필 이미지 클릭 시 마이페이지 / 로그아웃 버튼
-
 |                                                  로그인 / 회원가입                                                   |                                                   로그인 후 네비바                                                   |
 | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/5518195f-488e-4075-b38c-e68c824efc32"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/9c098a7e-36bd-4a78-bbfa-d76b1f9c354c"> |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/d665e46a-f7fa-46b7-8b0e-ca5b4230dead"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/a7e27778-a925-446e-84ef-70cd8ce996de"> |
 
 ### 동화 만들기
 
--   동화 직접 쓰기 - 제목 / 테마 / 줄거리
--   AI 동화 생성
-    -   제목 / 테마 / 줄거리 생성
-    -   편집
--   이미지 삽입
-    -   AI 이미지 생성
-    -   그림판 기능
-    -   이미지 파일 첨부
+|                                                 직접 쓰기 / AI 사용                                                  |                                                      직접 쓰기                                                       |                                                  **AI 줄거리 생성**                                                  |                                              **AI 줄거리 생성 - 편집**                                               |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/4402fd79-3389-41b1-8d02-23b2dfbd78fb"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/66a1a0dc-d254-46c4-9a99-8b93393b7293"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/67e62ca0-eede-4b16-afe5-9bb4c3a3bb15"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/1d054fa7-7e17-4b55-8c06-85457d2465e6"> |
+|                                           **이미지 삽입 - AI 이미지 생성**                                           |                                            **이미지 삽입 - 그림판 기능**                                             |                                             **이미지 삽입 - 사진 첨부**                                              |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/8a547eb2-276a-4b57-9d72-366b3afde101"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/c39c596c-fac1-4fab-b2df-b33e6eaa4c04"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/f262d1fc-3ac3-4923-b9db-80ae6657d2b9"> |
 
-|                                                 직접 쓰기 / AI 사용                                                  |                                                      직접 쓰기                                                       |
-| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/a833d325-8a0c-4837-82d8-7157363a31b8"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/3ffde973-4f46-48b6-9499-e200080e2ccc"> |
-|                                                  **AI 줄거리 생성**                                                  |                                              **AI 줄거리 생성 - 편집**                                               |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/a1e5aab2-87b7-4290-b3e7-9f375d677de2"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/c008b1ce-5267-49ab-a1e9-05385ab42b51"> |
-|                                           **이미지 삽입 - AI 이미지 생성**                                           |                                            **이미지 삽입 - 그림판 기능**                                             |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/15c59495-8a96-48e8-9372-582d4f18c4de"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/1f44f413-520b-4017-b24c-cc0df6c881aa"> |
-|                                             **이미지 삽입 - 사진 첨부**                                              |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/43563a6b-b8a1-4588-ae61-ff1d6524c585"> |
 
 ### 동화 게시판
 
--   동화 보기
-    -   조회수 / 좋아요 기능
-    -   내가 쓴 동화 - 수정 / 삭제 기능
-    -   스크롤 뷰와 상호작용
--   댓글
-    -   작성 / 수정 / 삭제
-    -   페이지네이션
-
 |                                                      동화 보기                                                       |                                                      댓글 작성/수정/삭제                                                |
 | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/e751dc2c-2be1-49f6-866b-8c9be595ec9e"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/786eb1dd-b882-4ddc-b554-4557817c48a8"> |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/73a2c872-4d67-4196-83a6-75f3329299f6"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/a4123cd8-6e76-48ac-b704-dd9443c45385"> |
 
 ### 결제페이지
 
--   꿈틀 포인트 충전
-    -   포인트별 결제
-    -   toss payments 이용
-    -   환불 사유 입력 및 환불 요청
-
 |                                                     toss payments 결제                                                       |                                                  환불 요청                                                 |
 | :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/db3e55f6-aa51-45dc-8cd2-709ab6fdb1dd"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/91f93a1c-585b-47bc-858d-5c92d874f6a5"> |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/4402fd79-3389-41b1-8d02-23b2dfbd78fb"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/eab6bef6-ac87-4bf5-8aaa-39e4c93223ef"> |
 
 ### 마이페이지
 
@@ -442,8 +401,9 @@
     -   프로필 이미지, 닉네임 수정
 -   회원 탈퇴
 
-|                                                      마이페이지                                                      |                                                     프로필 수정                                                      |
-| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/fa3cc7c5-315a-4dbf-895b-cff820c40962"> | <img width="400" height="220" src="https://github.com/user-attachments/assets/14686a7b-fc3c-45d8-91b3-62039cb861e7"> |
-|                                                    **회원 탈퇴**                                                     |
-| <img width="400" height="220" src="https://github.com/user-attachments/assets/3b6ccae3-31e3-48f4-8cfe-480e167f633b"> |
+|                                                      마이페이지                                                      |                                                     프로필 수정                                                      |                                                    **회원 탈퇴**                                                     |
+| :------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |:------------------------------------------------------------------------------------------------------------------: |
+| <img width="130" height="220" src="https://github.com/user-attachments/assets/d5f7cd6c-fd39-422a-b72c-7026b694c08c"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/fb3ab1d7-ae7f-4e6c-9b35-7fd694bff9d9"> | <img width="130" height="220" src="https://github.com/user-attachments/assets/96038ae8-3029-40a9-b90c-82946893c5a8"> |
+
+
+
