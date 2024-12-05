@@ -10,6 +10,7 @@ Date        Author   Status     Description
 2024.07.31  임도헌   Modified   portal 수정 및 react-hook-form으로 코드 변경
 2024.08.02  임도헌   Modified   creationWays 코드 추가 및 File 형태 폼제출 할 수 있도록 수정
 2024.08.03  임도헌   Modified   코드 분리
+2024.12.05  임도헌   Modified   파일 크기 초과 예외처리 추가
 */
 
 import React from 'react';
@@ -26,8 +27,14 @@ export default function FileUploadModal({
     onClose,
     onFileSelect
 }: FileUploadModalProps) {
-    const { fileRef, image, handleClick, handleFileChange, handleSubmit } =
-        useFileUploadModal();
+    const {
+        fileRef,
+        image,
+        error,
+        handleClick,
+        handleFileChange,
+        handleSubmit
+    } = useFileUploadModal();
 
     return (
         <Portal>
@@ -67,18 +74,20 @@ export default function FileUploadModal({
                             />
                         </button>
                     </div>
+                    {error && (
+                        <p className="text-red-500 mt-2 text-sm">{error}</p>
+                    )}
                     <div className="flex justify-center m-10">
-                        {image ? ( // 이미지가 있을 때만 렌더링
+                        {image ? (
                             <div className="relative flex justify-center w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] border-[3px] border-gray-400">
                                 <Image
                                     src={image}
                                     fill
                                     alt="image preview"
-                                    className="object-fit "
+                                    className="object-fit"
                                 />
                             </div>
                         ) : (
-                            // 이미지가 없으면 빈 div 보여준다.
                             <div className="flex justify-center items-center w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] font-bold border-[3px] border-gray-400">
                                 빈 이미지
                             </div>
